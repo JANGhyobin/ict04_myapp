@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mapper namespace="test.team.team_pj_lingo.dao.MemberMapper">
+
+    <!-- Id로 회원 조회 -->
+    <select id="getMemberById" parameterType="string" resultType="test.team.team_pj_lingo.dto.MemberDTO">
+        SELECT * FROM member_tbl WHERE mem_id = #{memId}
+    </select>
+
+    <!-- 회원 가입 -->
+    <insert id="insertMember" parameterType="test.team.team_pj_lingo.dto.MemberDTO">
+        INSERT INTO member_tbl (mem_no, mem_id, mem_pwd, mem_name, mem_country, mem_birthday, 
+                                mem_address, mem_hp, mem_rank, mem_email, mem_comment, mem_regdate)
+        VALUES (member_seq.NEXTVAL, #{memId}, #{memPwd}, #{memName}, #{memCountry}, #{memBirthday}, 
+                #{memAddress}, #{memHp}, #{memRank}, #{memEmail}, #{memComment}, SYSDATE)
+    </insert>
+
+    <!-- 로그인 처리 (ID와 비밀번호 확인) -->
+    <select id="idPasswordChk" parameterType="map" resultType="int">
+        SELECT COUNT(*) FROM member_tbl WHERE mem_id = #{memId} AND mem_pwd = #{memPwd}
+    </select>
+
+    <!-- 회원 탈퇴 -->
+    <delete id="deleteCustomer" parameterType="string">
+        DELETE FROM member_tbl WHERE mem_id = #{memId}
+    </delete>
+
+    <!-- 회원 상세 조회 -->
+    <select id="customerDetail" parameterType="string" resultType="test.team.team_pj_lingo.dto.MemberDTO">
+        SELECT * FROM member_tbl WHERE mem_id = #{memId}
+    </select>
+
+    <!-- 회원 정보 수정 -->
+    <update id="updateCustomer" parameterType="test.team.team_pj_lingo.dto.MemberDTO">
+        UPDATE member_tbl 
+        SET mem_pwd = #{memPwd},
+            mem_name = #{memName},
+            mem_country = #{memCountry},
+            mem_birthday = #{memBirthday},
+            mem_address = #{memAddress},
+            mem_hp = #{memHp},
+            mem_email = #{memEmail},
+            mem_comment = #{memComment}
+        WHERE mem_id = #{memId}
+    </update>
+
+</mapper>

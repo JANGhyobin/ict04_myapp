@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+/* 푸터 스타일 (LEGO 스타일 적용) */
+.footer_info {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    background-color: #2C2A4A; /* 새로운 배경색: 어두운 네이비 */
+    padding: 30px 0; /* 패딩 여유롭게 설정 */
+    text-align: center; /* 텍스트 가운데 정렬 */
+    color: #FFFFFF; /* 텍스트 색을 흰색으로 변경 */
+    font-family: 'Arial', sans-serif; /* LEGO 스타일 폰트 */
+}
+
+.footer_link li {
+    display: inline-block;
+    list-style: none;
+    padding: 0 20px; /* 좌우 간격 */
+    margin: 0;
+}
+
+.footer_link li a {
+    text-decoration: none; /* 밑줄 제거 */
+    color: #FFD700; /* 링크 색상: 노란색 */
+    font-size: 14px; /* 텍스트 크기 */
+    font-weight: bold;
+    transition: color 0.3s ease; /* 색상 변화 애니메이션 */
+}
+
+.footer_link li a:hover {
+    color: #FFFFFF; /* 호버 시 색상: 흰색 */
+}
+
+.footer_info_customer {
+    background-color: #2C2A4A; /* 동일한 어두운 네이비 배경색 */
+    color: #FFFFFF; /* 텍스트 색을 흰색으로 변경 */
+    padding: 15px 20px;
+    font-size: 14px; /* 텍스트 크기 */
+    text-align: center;
+    border-top: 1px solid #444; /* 구분선 색상: 어두운 회색 */
+}
+
+.footer_info_company {
+    color: #FFFFFF; /* 텍스트 색을 흰색으로 변경 */
+    font-size: 12px; /* 작은 텍스트 크기 */
+    text-align: center;
+    margin-top: 10px;
+    line-height: 1.5; /* 줄 간격 넓게 */
+}
